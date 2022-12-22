@@ -66,6 +66,20 @@ export function getNodes(): NodeConnectionParams[] {
             token: ''
         }
     },
+    {
+        id: 'gitpod',
+        label: 'Gitpod',
+        algod: {
+            url: window.location.host.replace(/^3000/, 'https://4001'),
+            port: '',
+            token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+        },
+        indexer: {
+            url: window.location.host.replace(/^3000/, 'https://8980'),
+            port: '',
+            token: ''
+        }
+    },
         {
             id: 'algonode_testnet',
             label: 'Algonode testnet',
