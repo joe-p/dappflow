@@ -20,7 +20,7 @@ export function getNodeConfig(): NodeConnectionParams {
         }
     }
 
-    const defaultNode = availableNodes[2];
+    const defaultNode = availableNodes[0];
 
     return {
         ...defaultNode,
@@ -52,34 +52,35 @@ export function getKMDConfig(): KMDConnectionParams {
 }
 
 export function getNodes(): NodeConnectionParams[] {
-    return [{
-        id: 'sandbox',
-        label: 'Sandbox',
-        algod: {
-            url: 'http://localhost',
-            port: '4001',
-            token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    return [
+        {
+            id: 'gitpod',
+            label: 'Gitpod',
+            algod: {
+                url: window.location.host.replace(/^3000/, 'https://4001'),
+                port: '',
+                token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+            },
+            indexer: {
+                url: window.location.host.replace(/^3000/, 'https://8980'),
+                port: '',
+                token: ''
+            }
         },
-        indexer: {
-            url: 'http://localhost',
-            port: '8980',
-            token: ''
-        }
-    },
-    {
-        id: 'gitpod',
-        label: 'Gitpod',
-        algod: {
-            url: window.location.host.replace(/^3000/, 'https://4001'),
-            port: '',
-            token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+        {
+            id: 'sandbox',
+            label: 'Sandbox',
+            algod: {
+                url: 'http://localhost',
+                port: '4001',
+                token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+            },
+            indexer: {
+                url: 'http://localhost',
+                port: '8980',
+                token: ''
+            }
         },
-        indexer: {
-            url: window.location.host.replace(/^3000/, 'https://8980'),
-            port: '',
-            token: ''
-        }
-    },
         {
             id: 'algonode_testnet',
             label: 'Algonode testnet',
